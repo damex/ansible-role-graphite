@@ -1,0 +1,11 @@
+---
+- name: ensure graphite
+  block:
+    - import_tasks: packages.yml
+    - import_tasks: graphite.yml
+    - import_tasks: carbon.yml
+    - import_tasks: systemd.yml
+    - import_tasks: apache2.yml
+    - import_tasks: migrate.yml
+  tags:
+    - graphite

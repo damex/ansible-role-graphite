@@ -1,0 +1,140 @@
+---
+graphite_user: "_graphite"
+graphite_group: "_graphite"
+
+graphite_web_package_name: "graphite-web"
+graphite_web_package_state: "present"
+graphite_carbon_package_name: "graphite-carbon"
+graphite_carbon_package_state: "present"
+graphite_local_settings_conf_file: "/etc/graphite/local_settings.py"
+graphite_secret_key: "UNSAFE_DEFAULT"
+graphite_allowed_hosts:
+  - "*"
+graphite_time_zone: "UTC"
+graphite_date_format: "%m/%d"
+graphite_documentation_url: "http://graphite.readthedocs.io/"
+graphite_log_rotation: true
+graphite_log_rotation_count: 1
+graphite_log_rendering_performance: false
+graphite_log_cache_performance: false
+graphite_log_file_info: "info.log"
+graphite_log_file_exception: "exception.log"
+graphite_log_file_cache: "cache.log"
+graphite_log_file_rendering: "rendering.log"
+graphite_debug: false
+graphite_flushrrdcached: ""
+graphite_memcache_hosts: []
+graphite_default_cache_duration: 60
+graphite_default_cache_policy: []
+graphite_memcache_key_prefix: "graphite"
+graphite_memcache_options: {}
+graphite_default_xfiles_factor: 0
+graphite_url_prefix: "/"
+graphite_max_tag_length: 50
+graphite_auto_refresh_interval: 60
+graphite_find_timeout: 3.0
+graphite_fetch_timeout: 3.0
+
+graphite_graphite_root: "/usr/share/graphite-web"
+graphite_conf_dir: "/etc/graphite"
+graphite_storage_dir: "/var/lib/graphite"
+graphite_static_root: "/usr/share/graphite-web/static"
+graphite_log_dir: "/var/log/graphite"
+graphite_index_file: "{{ graphite_storage_dir }}/search_index"
+graphite_dashboard_conf: "{{ graphite_conf_dir }}/dashboard.conf"
+graphite_graphtemplates_conf: "{{ graphite_conf_dir }}/graphTemplates.conf"
+graphite_ceres_dir: "{{ graphite_storage_dir }}/ceres"
+graphite_whisper_dir: "{{ graphite_storage_dir }}/whisper"
+graphite_rrd_dir: "{{ graphite_storage_dir }}/rrd"
+graphite_standard_dirs:
+  - WHISPER_DIR
+  - RRD_DIR
+graphite_storage_finders: ()
+graphite_email_backend: "django.core.mail.backends.dummy.EmailBackend"
+graphite_email_host: "localhost"
+graphite_email_port: 25
+graphite_email_host_user: ""
+graphite_email_host_password: ""
+graphite_email_use_tls: false
+graphite_use_ldap_auth: false
+graphite_ldap_server: ''
+graphite_ldap_port: 389
+graphite_ldap_use_tls: false
+graphite_ldap_uri: ''
+graphite_search_base: ''
+graphite_ldap_base_user: ''
+graphite_ldap_base_pass: ''
+graphite_ldap_user_query: ''
+graphite_ldap_user_dn_template: ''
+graphite_use_remote_user_authentication: false
+graphite_login_url: '/account/login'
+graphite_dashboard_require_authentication: false
+graphite_dashboard_require_edit_group: ''
+graphite_dashboard_require_permissions: false
+graphite_databases: {}
+graphite_cluster_servers: []
+graphite_use_worker_pool: true
+graphite_pool_max_workers: 10
+graphite_intracluster_http: false
+graphite_remote_retry_delay: 60.0
+graphite_store_fail_on_error: false
+graphite_remote_exclude_local: true
+graphite_max_fetch_retries: 2
+graphite_find_cache_duration: 300
+graphite_find_tolerance: "2 * FIND_CACHE_DURATION"
+graphite_remote_store_use_post: false
+graphite_remote_buffer_size: "1024 * 1024"
+graphite_remote_store_merge_results: true
+graphite_remote_storage_forward_headers: []
+graphite_remote_rendering: false
+graphite_rendering_hosts: []
+graphite_remote_render_connect_timeout: 1.0
+graphite_carbonlink_hosts:
+  - 127.0.0.1:7002
+graphite_carbonlink_timeout: 1.0
+graphite_carbonlink_retry_delay: 15
+graphite_carbonlink_hashing_type: "carbon_ch"
+graphite_carbonlink_hashing_keyfunc: "None"
+graphite_carbon_metric_prefix: "carbon"
+graphite_replication_factor: 1
+graphite_tagdb: "graphite.tags.localdatabase.LocalDatabaseTagDB"
+graphite_tagdb_cache_duration: 60
+graphite_tagdb_autocomplete_limit: 100
+graphite_tagdb_redis_host: "localhost"
+graphite_tagdb_redis_port: 6379
+graphite_tagdb_redis_db: 0
+graphite_tagdb_http_url: ""
+graphite_tagdb_http_user: ""
+graphite_tagdb_http_password: ""
+graphite_tagdb_http_autocomplete: false
+graphite_function_plugins: []
+graphite_carbon_carbon_conf_file: "/etc/carbon/carbon.conf"
+graphite_carbon_cache_service_name: "carbon-cache"
+graphite_carbon_cache_storage_dir: "{{ graphite_storage_dir }}"
+graphite_carbon_cache_local_data_dir: "{{ graphite_whisper_dir }}"
+graphite_carbon_cache_whitelists_dir: "{{ graphite_storage_dir }}/lists"
+graphite_carbon_cache_conf_dir: "/etc/carbon"
+graphite_carbon_cache_log_dir: "/var/log/carbon"
+graphite_carbon_cache_pid_dir: "/var/run"
+graphite_carbon_cache_enable_logrotation: false
+graphite_carbon_cache_database: "whisper"
+graphite_carbon_cache_user: "{{ graphite_user }}"
+graphite_carbon_cache_max_cache_size: "inf"
+graphite_carbon_cache_max_updates_per_second: 512
+graphite_carbon_cache_max_updates_per_second_on_shutdown: 1024
+graphite_carbon_cache_max_creates_per_minute: "inf"
+graphite_carbon_cache_min_timestamp_resolution: 1
+graphite_carbon_cache_min_timestamp_lag: 0
+graphite_carbon_cache_line_receiver_interface: "0.0.0.0"
+graphite_carbon_cache_line_receiver_port: 2003
+graphite_carbon_cache_enable_udp_listener: true
+graphite_carbon_cache_udp_receiver_interface: "0.0.0.0"
+graphite_carbon_cache_udp_receiver_port: 2003
+graphite_carbon_cache_pickle_receiver_interface: "0.0.0.0"
+graphite_carbon_cache_pickle_receiver_port: 2004
+graphite_carbon_cache_protobuf_receiver_interface: "0.0.0.0"
+graphite_carbon_cache_protobuf_receiver_port: 2005
+graphite_carbon_cache_max_receiver_connections: "inf"
+graphite_carbon_cache_use_insecure_unpickler: false
+graphite_carbon_storage_schemas: []
+graphite_carbon_storage_schemas_conf_file: "/etc/carbon/storage-schemas.conf"

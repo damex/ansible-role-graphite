@@ -1,0 +1,11 @@
+---
+- name: ensure graphite configuration
+  block:
+    - name: ensure local_settings.py
+      template:
+        src: "local_settings.py.j2"
+        dest: "{{ graphite_local_settings_conf_file }}"
+        owner: "root"
+        group: "root"
+        mode: 0644
+  become: true

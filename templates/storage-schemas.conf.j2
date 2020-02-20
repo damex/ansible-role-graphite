@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+{% for graphite_carbon_storage_schema in graphite_carbon_storage_schemas %}
+[{{ graphite_carbon_storage_schema.name }}]
+pattern = {{ graphite_carbon_storage_schema.pattern }}
+retentions = {{ graphite_carbon_storage_schema.retentions }}
+{% endfor %}

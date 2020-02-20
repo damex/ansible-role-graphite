@@ -1,0 +1,23 @@
+---
+- name: ensure apache2 modules
+  include_role:
+    name: "damex.apache2"
+  vars:
+    apache2_module_packages:
+      - wsgi-py3
+    apache2_modules:
+      - wsgi
+
+- name: ensure apache2 site
+  file:
+    src: "/usr/share/graphite-web/apache2-graphite.conf"
+    dest: "/etc/apache2/sites-available/graphite.conf"
+    state: "link"
+  become: true
+
+- name: ensure apache2 sites
+  include_role:
+    name: "damex.apache2"
+  vars:
+    apache2_sites:
+      - graphite
