@@ -1,0 +1,13 @@
+---
+- name: ensure migrations
+  command: graphite-manage showmigrations -p
+  become: true
+  become_user: "{{ graphite_user }}"
+  changed_when: false
+  register: graphite_manage_showmigrations
+
+- name: ensure migrations
+  command: graphite-manage migrate
+  become: true
+  become_user: "{{ graphite_user }}"
+  when: '"[ ]" in graphite_manage_showmigrations'

@@ -1,0 +1,20 @@
+---
+- name: ensure carbon configuration
+  block:
+    - name: ensure carbon.conf
+      template:
+        src: "carbon.conf.j2"
+        dest: "{{ graphite_carbon_carbon_conf_file }}"
+        owner: "root"
+        group: "root"
+        mode: 0644
+      register: graphite_carbon_carbon_conf_file_status
+    - name: ensure storage-schemas.conf
+      template:
+        src: "storage-schemas.conf.j2"
+        dest: "{{ graphite_carbon_storage_schemas_conf_file }}"
+        owner: "root"
+        group: "root"
+        mode: 0644
+      register: graphite_carbon_storage_schemas_conf_file_status
+  become: true

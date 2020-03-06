@@ -1,0 +1,11 @@
+---
+- name: ensure graphite packages
+  include_role:
+    name: "damex.package"
+  vars:
+    package_packages:
+      - name: "{{ graphite_web_package_name }}"
+        state: "{{ graphite_web_package_state }}"
+      - name: "{{ graphite_carbon_package_name }}"
+        state: "{{ graphite_carbon_package_state }}"
+      - python3-psycopg2
