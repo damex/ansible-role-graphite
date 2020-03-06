@@ -8,4 +8,15 @@
         state: "{{ graphite_web_package_state }}"
       - name: "{{ graphite_carbon_package_name }}"
         state: "{{ graphite_carbon_package_state }}"
-      - python3-psycopg2
+
+- name: ensure graphite postgresql dependency package
+  include_role:
+    name: "damex.package"
+  vars:
+    package_packages:
+      - name: "{{ graphite_postgresql_dependency_package_name }}"
+        state: "{{ graphite_postgresql_dependency_package_state }}"
+  when: graphite_psql.value.ENGINE == "django.db.backends.postgresql_psycopg2"
+  loop: "{{ graphite_databases | dict2items }}"
+  loop_control:
+    loop_var: "graphite_psql"
