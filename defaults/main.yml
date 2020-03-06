@@ -6,6 +6,8 @@ graphite_web_package_name: "graphite-web"
 graphite_web_package_state: "present"
 graphite_carbon_package_name: "graphite-carbon"
 graphite_carbon_package_state: "present"
+graphite_postgresql_dependency_package_name: "python3-psycopg2"
+graphite_postgresql_dependency_package_state: "present"
 graphite_local_settings_conf_file: "/etc/graphite/local_settings.py"
 graphite_secret_key: "UNSAFE_DEFAULT"
 graphite_allowed_hosts:
